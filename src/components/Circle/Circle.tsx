@@ -25,7 +25,6 @@ export const Circle: React.FC = () => {
         } else if (rotateDiff < -180) {
             rotateDiff += 360;
         }
-
         setRotateValue(currentPosition + rotateDiff);
     }
     return (
