@@ -8,14 +8,39 @@
     --purple: #5d5fef;
     --pink: #EF5DA8;
     --darkblue: #42567a;
+    --grey: #F4F5F9;
 }
 
 #root {
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 
 body {
     font-family: var(--font-family);
     font-weight: 400;
     font-style: normal;
+    background-color: var(--grey);
+}
+
+.circle-dot {
+    width: 5px;
+    height: 5px;
+    background-color: #EF5DA8;
+}
+
+.circle {
+    position: relative;
+    width: 200px; /* Размер круга */
+    height: 200px; /* Размер круга */
+    border-radius: 50%; /* Превращаем прямоугольник в круг */
+    border: 2px solid black; /* Обводка для круга */
+}
+
+.point {
+    position: absolute;
+    width: 10px; /* Размер точки */
+    height: 10px; /* Размер точки */
+    background-color: red; /* Цвет точки */
+    border-radius: 50%; /* Превращаем прямоугольник в круг */
+    transform: translate(-50%, -50%); /* Центрируем точку */
 }

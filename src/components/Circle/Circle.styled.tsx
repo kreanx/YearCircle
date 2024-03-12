@@ -2,12 +2,18 @@ import styled from "styled-components";
 
 export const CircleContainer = styled.div`
   width: 536px;
-  height: 530px;
+  height: 536px;
   position: absolute;
   top: 0;
-  left: 190px;
-  transform: translate(50%, 50%);
-  
+  left: 50%;
+
+  width: 536px;
+  height: 536px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+
   &::before {
     content: '';
     position: absolute;
@@ -17,19 +23,6 @@ export const CircleContainer = styled.div`
     border: 1px solid var(--darkblue);
     overflow: hidden;
     opacity: .2;
-  }
-
-  &::after {
-    content: '';
-    opacity: 0.1;
-    width: 200vw;
-    height: 100%;
-    top: 0;
-    left: -100vw;
-    position: absolute;
-    transform: translateY(50%);
-    border-top: 1px solid var(--darkblue);
-    z-index: -1;
   }
 `
 

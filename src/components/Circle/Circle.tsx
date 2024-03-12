@@ -1,42 +1,31 @@
 import * as Styled from "./Circle.styled";
-import {useEffect, useRef, useState} from "react";
-import {circlePosition} from "../../constants/circlePosition";
-import {CircleItem} from "../CircleItem/CircleItem";
+import {useEffect, useRef} from "react";
+import {CircleDot} from "../CircleDot/CircleDot";
 import {gsap} from "gsap";
+import {CircleYears} from "../CircleYears/CircleYears";
+import {eventData} from "../../constants/eventData";
+import {ICircle} from "./types";
 
-export const Circle: React.FC = () => {
+export const Circle: React.FC<ICircle> = ({rotateValue, setRotateValue, currentIndex, setCurrentIndex, circleData, handleRotate}) => {
     const containerRef = useRef(null)
 
-    const [rotateValue, setRotateValue] = useState(0)
-
     useEffect(() => {
+        document.documentElement.style.setProperty('--rotate-value', String(-rotateValue) + 'DEG');
         gsap.to(containerRef.current, {rotate: rotateValue})
-    }, [rotateValue, containerRef.current]);
+    }, [rotateValue, containerRef]);
 
-    const handleRotate = (index: number) => {
-        const positions = [-60, 0, 60, 240, 180, 120];
-        const currentPosition = rotateValue;
-        const targetPosition = positions[index];
-
-        let rotateDiff = targetPosition - currentPosition;
-
-        if (rotateDiff > 180) {
-            rotateDiff -= 360;
-        } else if (rotateDiff < -180) {
-            rotateDiff += 360;
-        }
-        setRotateValue(currentPosition + rotateDiff);
-    }
     return (
         <Styled.CircleContainer>
             <Styled.CircleDotsWrapper ref={containerRef}>
-                {circlePosition.map(({left, top}, i) => {
+                {circleData.map((item) => {
                     return (
-                        <CircleItem handler={handleRotate} key={i} left={left} top={top} index={i}/>
+                        <CircleDot isActive={currentIndex === item.count} handler={handleRotate}
+                                   key={item.count} {...item}/>
                     )
                 })}
             </Styled.CircleDotsWrapper>
+            <CircleYears startYear={eventData[currentIndex - 1].startYear}
+                         endYear={eventData[currentIndex - 1].endYear}/>
         </Styled.CircleContainer>
-
     )
 }

@@ -2,14 +2,12 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  min-height: 100vh;
+  height: 100%;
   max-width: 1440px;
   margin: 0 auto;
-  overflow: hidden;
-  
+  //overflow: hidden;
+  padding-left: 80px;
   &::before {
     content: '';
     opacity: 0.1;
@@ -21,21 +19,20 @@ export const Container = styled.div`
     border: 1px solid var(--darkblue);
     border-top: none;
     border-bottom: none;
+    z-index: -1;
   }
 `
 
 export const Wrapper = styled.div`
-  position: absolute;
-  height: 100%;
-  width: 100%;
+  margin-top: 170px;
   
   &::before {
     content: '';
     opacity: 0.1;
-    width: 100%;
+    width: 1px;
     height: 100%;
     top: 0;
-    left: 0;
+    left: 50%;
     position: absolute;
     transform: translateX(50%);
     border-left: 1px solid var(--darkblue);
@@ -43,8 +40,7 @@ export const Wrapper = styled.div`
   }
 `
 export const Content = styled.div`
-  margin-top: 170px;
-  margin-left: 80px;
+  
 `
 export const Title = styled.h1`
   position: relative;
@@ -63,3 +59,13 @@ export const Title = styled.h1`
     background: linear-gradient(180deg, #3877EE 0%, #EF5DA8 100%);
   }
 `
+
+export const ButtonsWrapper = styled.div`
+  margin-top: 400px;
+`
+export const SliderWrapper = styled.div`
+  width: 100%;
+  height: 135px;
+  margin-top: 56px;
+`
+
