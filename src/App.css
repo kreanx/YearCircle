@@ -1,7 +1,12 @@
+* {
+    box-sizing: border-box;
+}
+
 :root {
     /*Fonts*/
     --font-family: "PT Sans", sans-serif;
     --second-family: "Bebas Neue", sans-serif;
+
 
     /*Colors*/
     --blue: #3877ee;
@@ -9,6 +14,11 @@
     --pink: #EF5DA8;
     --darkblue: #42567a;
     --grey: #F4F5F9;
+    --dark: #c7cdd9;
+
+    /*Swiper*/
+    /*--swiper-pagination-bottom: auto;*/
+    /*--swiper-pagination-top: 8px;*/
 }
 
 #root {
@@ -22,25 +32,6 @@ body {
     background-color: var(--grey);
 }
 
-.circle-dot {
-    width: 5px;
-    height: 5px;
-    background-color: #EF5DA8;
-}
+.swiper-pagination {
 
-.circle {
-    position: relative;
-    width: 200px; /* Размер круга */
-    height: 200px; /* Размер круга */
-    border-radius: 50%; /* Превращаем прямоугольник в круг */
-    border: 2px solid black; /* Обводка для круга */
-}
-
-.point {
-    position: absolute;
-    width: 10px; /* Размер точки */
-    height: 10px; /* Размер точки */
-    background-color: red; /* Цвет точки */
-    border-radius: 50%; /* Превращаем прямоугольник в круг */
-    transform: translate(-50%, -50%); /* Центрируем точку */
 }

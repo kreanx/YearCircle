@@ -6,8 +6,12 @@ export const Container = styled.div`
   height: 100%;
   max-width: 1440px;
   margin: 0 auto;
-  //overflow: hidden;
-  padding-left: 80px;
+  padding: 0 80px;
+
+  @media screen and (max-width: 1000px) {
+    padding: 0 20px;
+  }
+  
   &::before {
     content: '';
     opacity: 0.1;
@@ -21,10 +25,20 @@ export const Container = styled.div`
     border-bottom: none;
     z-index: -1;
   }
+
+  @media screen and (max-width: 1000px) {
+    &::after {
+      display: none;
+    }
+
+    &::before {
+      display: none;
+    }
+  }
 `
 
 export const Wrapper = styled.div`
-  margin-top: 170px;
+  padding-top: 170px;
   
   &::before {
     content: '';
@@ -38,17 +52,40 @@ export const Wrapper = styled.div`
     border-left: 1px solid var(--darkblue);
     z-index: -1;
   }
+
+  @media screen and (max-width: 1000px) {
+    padding-top: 60px;
+    
+    display: flex;
+    flex-direction: column;
+    
+    &:nth-child(3) {
+      order: 3;
+    }
+    
+    &::before {
+      display: none;
+    }
+  }
 `
 export const Content = styled.div`
   
 `
 export const Title = styled.h1`
+  margin: 0;
   position: relative;
   font-weight: 700;
   font-size: 56px;
   line-height: 120%;
   color: var(--darkblue);
-  
+  @media screen and (max-width: 1000px) {
+    font: 700 20px / 120% var(--font-family);
+    order: 3;
+    &::before {
+      display: none;
+    }
+  }
+
   &::before {
     content: '';
     position: absolute;
@@ -62,10 +99,40 @@ export const Title = styled.h1`
 
 export const ButtonsWrapper = styled.div`
   margin-top: 400px;
+  order: 5;
+  @media screen and (max-width: 1000px) {
+    margin-top: 20px;
+  }
+  
 `
 export const SliderWrapper = styled.div`
   width: 100%;
   height: 135px;
   margin-top: 56px;
+
+  @media screen and (max-width: 1000px) {
+    height: auto;
+    margin-top: 20px;
+      order: 6;
+  }
 `
 
+export const Divider = styled.div`
+  display: none;
+  
+  @media screen and (max-width: 1000px) {
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: var(--dark);
+    margin-top: 38px;
+    order: 3;
+  }
+`
+
+export const CircleTitle = styled.div`
+  order: 4;
+  font: 700 20px / 150% var(--font-family);
+  color: var(--darkblue);
+  margin-top: 20px;
+`

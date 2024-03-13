@@ -3,7 +3,7 @@ import {ICircleDot} from "./types";
 import {gsap} from 'gsap'
 import {useEffect, useRef, useState} from "react";
 
-export const CircleDot: React.FC<ICircleDot> = ({position, degree, description, count, handler, isActive}) => {
+export const CircleDot: React.FC<ICircleDot> = ({position, description, count, handler, isActive, wrapperHeight}) => {
     const [isOnDot, setIsOnDot] = useState(isActive)
     const dotRef = useRef(null)
     const descriptionRef = useRef(null)
@@ -58,7 +58,7 @@ export const CircleDot: React.FC<ICircleDot> = ({position, degree, description, 
 
     return (
         <div onMouseOver={mouseOverHandler} onMouseOut={mouseLeaveHandler} onClick={() => handler(count)}>
-            <Styled.CircleWrapper left={position.left} top={position.top}>
+            <Styled.CircleWrapper left={position.y + wrapperHeight / 2 - 4} top={position.x + wrapperHeight / 2 - 4}>
                 <Styled.CircleInvisible>
                     <Styled.Text ref={dotRef}>{count}</Styled.Text>
                     {isActive && <Styled.Description ref={descriptionRef}>{description}</Styled.Description>}

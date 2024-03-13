@@ -14,6 +14,10 @@ export const Button  = styled.button`
   &:disabled {
     display: none;
   }
+
+  @media screen and (max-width: 1000px) {
+    display: none;
+  }
 `
 
 export const PrevButton = styled(Button)`
@@ -36,6 +40,7 @@ export const SlideDescription = styled.div`
 `
 
 export const SlideWrapper = styled.div`
+  height: 200px;
   display: flex;
   flex-direction: column;
   gap: 16px;

@@ -8,11 +8,12 @@ import {Slider} from "../../components/Slider/Slider";
 import {eventData} from "../../constants/eventData";
 
 export const Main: React.FC = () => {
-    const [rotateValue, setRotateValue] = useState(0)
+    const [rotateValue, setRotateValue] = useState(180)
     const [currentIndex, setCurrentIndex] = useState(1)
+    const currentAngle = 360 / (circleData.length)
     const handleRotate = (index: number) => {
         const currentPosition = rotateValue;
-        const targetPosition = (index - 1) * -60;
+        const targetPosition = (index - 4) * -currentAngle;
         const rotateDiff = calculatePosition(targetPosition, currentPosition)
 
         setCurrentIndex(index)
@@ -20,11 +21,11 @@ export const Main: React.FC = () => {
     }
 
     const nextHandler = () => {
-        setRotateValue(rotateValue - 60);
+        setRotateValue(rotateValue - currentAngle);
         setCurrentIndex(currentIndex + 1)
     }
     const prevHandler = () => {
-        setRotateValue(rotateValue + 60);
+        setRotateValue(rotateValue + currentAngle);
         setCurrentIndex(currentIndex - 1)
     }
 
@@ -36,6 +37,8 @@ export const Main: React.FC = () => {
                 </Styled.Content>
                 <Circle circleData={circleData} currentIndex={currentIndex} setCurrentIndex={setCurrentIndex}
                         setRotateValue={setCurrentIndex} rotateValue={rotateValue} handleRotate={handleRotate}/>
+                <Styled.Divider/>
+                <Styled.CircleTitle>{circleData[currentIndex - 1].description}</Styled.CircleTitle>
                 <Styled.ButtonsWrapper>
                     <SliderButtons index={currentIndex} itemLength={circleData.length} nextHandler={nextHandler}
                                    prevHandler={prevHandler}/>

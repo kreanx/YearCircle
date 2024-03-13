@@ -10,6 +10,7 @@ export const CircleWrapper = styled.div<{ top: number; left: number }>`
   border-radius: 100%;
   transform: rotate(var(--rotate-value));
   cursor: pointer;
+  
 `
 
 export const CircleInvisible = styled.div`
