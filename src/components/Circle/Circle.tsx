@@ -7,7 +7,7 @@ import {eventData} from "../../constants/eventData";
 import {ICircle} from "./types";
 import {Iposition} from "../CircleDot/types";
 
-export const Circle: React.FC<ICircle> = ({rotateValue, setRotateValue, currentIndex, setCurrentIndex, circleData, handleRotate}) => {
+export const Circle: React.FC<ICircle> = ({rotateValue, currentIndex, circleData, handleRotate}) => {
     const containerRef = useRef<any>(null)
     const [_, forceUpdate] = useReducer((v) => v + 1, 0)
     const dotsNumber = circleData.length
